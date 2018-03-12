@@ -9,16 +9,28 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/mvc 
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-        
-	<mvc:annotation-driven />
-	
+
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="false">
+			<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
+			<bean id="fastJsonHttpMessageConverter"
+				class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>application/json;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
 	<!-- 静态资料目录 -->
-    <mvc:resources location="/" mapping="/**" />
-    
-    <!-- 默认扫描controller包 -->
-    <context:component-scan base-package="org.chieh.controller" />
-    
-    <!-- 配置视图解析器 -->
+	<mvc:resources location="/" mapping="/**" />
+
+	<!-- 默认扫描controller包 -->
+	<context:component-scan base-package="org.chieh.controller" />
+
+	<!-- 配置视图解析器 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp" />
