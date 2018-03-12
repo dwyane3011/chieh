@@ -5,4 +5,9 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>chieh</name>
+  <modules>
+  	<module>chieh-common</module>
+  	<module>chieh-web</module>
+  	<module>chieh-sys</module>
+  </modules>
 </project>
