@@ -2,15 +2,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>欢迎━(*｀∀´*)ノ亻! 注册</title>
+<title>欢迎━(*｀∀´*)ノ亻!注册</title>
 </head>
 <body>
-<div style="width: 100%; height: 80px; background: #fff;"></div>
-<div style="width: 100%; min-height: 510px; background: #fff; background-image: url(${pageContext.request.contextPath}/images/register/background.jpg);">
-    <form action="${pageContext.request.contextPath}/register/register" method="post">
-        <input type="submit" value="立即注册">
-    </form>
-</div>
-<div style="width: 100%; height: 80px; background: #fff;"></div>
+<h2>用户注册</h2>
+<form action="${pageContext.request.contextPath }/register/register" method="post">
+	<table>
+		<tr>
+			<td style="text-align:right">用户名：</td>
+			<td><input type="text" name="username"></td>
+		</tr>
+		<tr>
+			<td style="text-align:right">密码：</td>
+			<td><input type="password" name="password"></td>
+		</tr>
+		<tr>
+			<td style="text-align:right">确认密码：</td>
+			<td><input type="password" name="confirmpsw"></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="立即注册"></td>
+		</tr>
+	</table>
+</form>
 </body>
 </html>

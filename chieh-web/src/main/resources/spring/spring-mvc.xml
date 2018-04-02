@@ -12,7 +12,6 @@
 
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="false">
-			<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
 			<bean id="fastJsonHttpMessageConverter"
 				class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
 				<property name="supportedMediaTypes">
@@ -23,12 +22,11 @@
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
+	
+	<mvc:resources mapping="/**" location="/" />
 
-	<!-- 静态资料目录 -->
-	<mvc:resources location="/" mapping="/**" />
-
-	<!-- 默认扫描controller包 -->
-	<context:component-scan base-package="org.chieh.controller" />
+	<!-- 有spring相关注解的类，则把这些类注册为spring的bean -->
+	<context:component-scan base-package="org.chieh" />
 
 	<!-- 配置视图解析器 -->
 	<bean
@@ -36,4 +34,5 @@
 		<property name="prefix" value="/WEB-INF/jsp" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
 </beans>
