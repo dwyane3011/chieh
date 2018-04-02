@@ -49,4 +49,5 @@
 
 	<!-- 启用支持annotation注解方式事务管理 -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
+	
 </beans>

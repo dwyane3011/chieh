@@ -21,9 +21,23 @@
 			<td><input type="password" name="confirmpsw"></td>
 		</tr>
 		<tr>
+			<td style="text-align:right">验证码：</td>
+			<td>
+				<input type="text" name="kaptcha" style="width: 83px;vertical-align:middle">
+				<img title="点击刷新" id="kaptcha-img" src="${pageContext.request.contextPath }/kaptcha" 
+				    style="vertical-align:middle;cursor:pointer" onclick="refreshKaptcha()">
+			</td>
+		</tr>
+		<tr>
+		    <td></td>
 			<td><input type="submit" value="立即注册"></td>
 		</tr>
 	</table>
 </form>
 </body>
+<script type="text/javascript">
+function refreshKaptcha(){
+    document.getElementById("kaptcha-img").src='${pageContext.request.contextPath }/kaptcha';
+}
+</script>
 </html>
